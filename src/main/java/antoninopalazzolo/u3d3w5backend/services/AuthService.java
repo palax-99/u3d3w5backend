@@ -22,8 +22,7 @@ public class AuthService {
     }
 
     public String checkCredentialsAndGenerateToken(LoginDTO body) {
-        // cerco l'utente per email, se non esiste lancio UnauthorizedException
-        // (non dico "email non trovata" per non dare info agli attaccanti)
+        // se non trovo l'email dico solo "credenziali erraate" così non do info a chi prova ad entrarer
         try {
             User found = this.usersService.findByEmail(body.email());
             // controllo che la password corrisponda

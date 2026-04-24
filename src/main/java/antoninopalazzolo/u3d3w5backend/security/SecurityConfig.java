@@ -39,14 +39,14 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder getBCrypt() {
-        // BCrypt con 12 rounds — più è alto più è sicuro ma più è lento
+        // 12 rounds per BCryptt, più alto = più sihcuro ma ci mette di più
         return new BCryptPasswordEncoder(12);
     }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // whitelist dei frontend autorizzati ad accedere a questo backend
+        // solo il frontend mio può accedere
         configuration.setAllowedOrigins(List.of("http://localhost:3001"));
         configuration.setAllowedMethods(List.of("*"));
         configuration.setAllowedHeaders(List.of("*"));
